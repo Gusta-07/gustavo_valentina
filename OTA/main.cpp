@@ -15,10 +15,6 @@ const int LED_PIN = 5; // D1
 
 
 
-
-
-WiFiServer server(23);
-
 WiFiClient client;
 
 
@@ -95,12 +91,6 @@ void setup() {
 
 
 
-  server.begin();
-
-  server.setNoDelay(true);
-
-  Serial.println("Servidor Telnet iniciado...");
-
 }
 
 
@@ -109,54 +99,5 @@ void loop() {
 
   ArduinoOTA.handle();
 
-  if (server.hasClient()) {
-
-    if (!client || !client.connected()) {
-
-      if (client) client.stop();
-
-      client = server.available();
-
-      Serial.println("Cliente conectado via Telnet.");
-
-      client.println("Digite '1' para ligar o LED e '0' para desligar o LED.");
-
-    } else {
-
-      server.available().stop();
-
-    }
-
-  }
-
-
-
-  if (client && client.connected() && client.available()) {
-
-    char command = client.read();
-
-    if (command == '1') {
-
-      digitalWrite(LED_PIN, LOW); 
-
-      client.println("LED ligado.");
-
-      Serial.println("LED ligado.");
-
-    } else if (command == '0') {
-
-      digitalWrite(LED_PIN, HIGH); 
-
-      client.println("LED desligado.");
-
-      Serial.println("LED desligado.");
-
-    } else {
-
-      client.println("Comando inválido. Digite '1' para ligar o LED e '0' para desligar o LED.");
-
-    }
-
-  }
 
 }
