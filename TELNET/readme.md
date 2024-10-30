@@ -1,25 +1,21 @@
 #include <ESP8266WiFi.h>
-
 #include <ArduinoOTA.h>
+// importando as bibliotecas acima 
 
-
-
-const char* ssid = "ssid";
-
-const char* password = "password";
-
-
+const char* ssid = "iPhone de Yuri";
+const char* password = "batata1234";
+// inclusão da rede ( nome da rede e senha)
 
 const int LED_PIN = 5; // D1
 
+IPAddress local_IP(172,20,10,13); 
+//Definindo um IP fixo (no caso o da nossa faixa)
 
+IPAddress gateway(172,20,10,1);
+//inserindo o gatway
 
-//IPAddress local_IP(192, 168, 1, 184); // Definindo um IP fixo
-
-//IPAddress gateway(192, 168, 1, 1);
-
-//IPAddress subnet(255, 255, 255, 0);
-
+IPAddress subnet(255, 255, 255, 0);
+// define a máscara sa subrede
 
 
 WiFiServer server(23);
