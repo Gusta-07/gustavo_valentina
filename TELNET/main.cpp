@@ -4,9 +4,9 @@
 
 
 
-const char* ssid = "Prof.Rafael";
+const char* ssid = "ssid";
 
-const char* password = "senhasenha";
+const char* password = "password";
 
 
 
@@ -14,6 +14,11 @@ const int LED_PIN = 5; // D1
 
 
 
+//IPAddress local_IP(192, 168, 1, 184); // Definindo um IP fixo
+
+//IPAddress gateway(192, 168, 1, 1);
+
+//IPAddress subnet(255, 255, 255, 0);
 
 
 
